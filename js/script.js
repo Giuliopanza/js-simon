@@ -2,23 +2,23 @@ let istr = document.getElementById("instructions")
 
 let numeri = document.getElementById("numbers-list")
 
-let numero = {}
+let numbers = {}
 
 let containerafter = document.getElementById("answers-form")
 
 let numin = document.getElementsByClassName("form-control")
 
-let p = document.getElementsByClassName("message")
+let p = document.getElementById("message")
 
-let btn = document.getElementsByClassName(`btn`)
+let btn = document.querySelector(".btn")
 
 for (let i = 1; i < 6; i++) {
 
     const li = document.createElement(`li`);
 
-    numero [i] = Math.floor(Math.random() * 50) + 0 ;
+    numbers [i] = Math.floor(Math.random() * 50) + 0 ;
 
-    li.append(numero[i]);
+    li.append(numbers[i]);
 
     numeri.appendChild(li);
     
@@ -35,16 +35,15 @@ function timer() {
 
 }
 
+
 btn.addEventListener("click", function(){
 
-    console.log (ciao)
-    
     let win = {}
 
-    for (let i = 0; i < numero.length; i++) {
-        for (let x = 0; x < numin.length; x++) {
-            if (numin[x] == numero[i]) {
-                win[x] == numin [x]
+    for (let i = 0; i < numin.length; i++) {
+        for (let x = 0; x < numbers.length; x++) {
+            if (numin[x].value == numbers[i]) {
+                win.push (numin[x].value)
             }
         
         }
