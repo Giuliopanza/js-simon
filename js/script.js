@@ -2,17 +2,7 @@ const numeri = document.getElementById("numbers-list")
 
 let numbers = []
 
-const countdown = document.getElementById("countdown")
-
-let istr = document.getElementById("instructions")
-
-let containerafter = document.getElementById("answers-form")
-
 const numin = document.getElementsByClassName("form-control")
-
-let p = document.getElementById("message")
-
-let btn = document.querySelector(".btn")
 
 function numrandom(min, max) {
 
@@ -20,9 +10,9 @@ function numrandom(min, max) {
     
 }
 
-for (let i = 0; numbers.length <= 5; i++) {
+for (let i = 0; numbers.length < 5; i++) {
 
-    let numerorand = let numerorandomico(numrandom) ;
+    let numerorand = numrandom(1, 50) ;
 
     if (!(numbers.includes(numerorand))) {
 
@@ -33,9 +23,16 @@ for (let i = 0; numbers.length <= 5; i++) {
 }
 
 for (let i = 0; i < numbers.length; i++) {
+    
     numeri.innerHTML += `<li>${ numbers (i)}<li>`
     
 }
+
+const countdown = document.getElementById("countdown")
+
+let istr = document.getElementById("instructions")
+
+let containerafter = document.getElementById("answers-form")
 
 let counter = 30
 
@@ -55,6 +52,10 @@ const timer = setInterval(function(){
     
 }, 1000);
 
+let p = document.getElementById("message")
+
+let btn = document.querySelector(".btn")
+
 let win = []
 
 btn.addEventListener(`click`, function(event){
@@ -72,9 +73,13 @@ btn.addEventListener(`click`, function(event){
     }
 
     if (win.length > 0) {
+
         p.textContent = `Hai ricordato ${win.length} numeri e i numeri sono ${win}`
+
     } else {
-        p.textContent = `Non hai ricordato nulla`                
+
+        p.textContent = `Non hai ricordato nulla`    
+
     }
 
 })
