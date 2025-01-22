@@ -1,52 +1,74 @@
+const numeri = document.getElementById("numbers-list")
+
+let numbers = []
+
+const countdown = document.getElementById("countdown")
+
 let istr = document.getElementById("instructions")
-
-let numeri = document.getElementById("numbers-list")
-
-let numbers = {}
 
 let containerafter = document.getElementById("answers-form")
 
-let numin = document.getElementsByClassName("form-control")
+const numin = document.getElementsByClassName("form-control")
 
 let p = document.getElementById("message")
 
 let btn = document.querySelector(".btn")
 
-for (let i = 1; i < 6; i++) {
+function numrandom(min, max) {
 
-    const li = document.createElement(`li`);
-
-    numbers [i] = Math.floor(Math.random() * 50) + 0 ;
-
-    li.append(numbers[i]);
-
-    numeri.appendChild(li);
+    Math.floor(Math.random() * max) + min ;
     
 }
 
-setTimeout(timer, 3000 );
+for (let i = 0; numbers.length <= 5; i++) {
 
-function timer() {
-    istr.className = 'd-none';
+    let numerorand = let numerorandomico(numrandom) ;
 
-    numeri.className = 'd-none';
+    if (!(numbers.includes(numerorand))) {
 
-    containerafter.className = `d-block`;  
+        numbers.push(numerorand)
+        
+    }
 
 }
 
+for (let i = 0; i < numbers.length; i++) {
+    numeri.innerHTML += `<li>${ numbers (i)}<li>`
+    
+}
 
-btn.addEventListener("click", function(){
+let counter = 30
 
-    let win = {}
+const timer = setInterval(function(){
+
+    countdown.innerHTML = counter--
+
+    if (counter < 0){
+        clearInterval (timer)
+
+        istr.className = 'd-none';
+
+        numeri.className = 'd-none';
+
+        containerafter.className = `d-block`;
+    }
+    
+}, 1000);
+
+let win = []
+
+btn.addEventListener(`click`, function(event){
+
+    event.preventDefault()
 
     for (let i = 0; i < numin.length; i++) {
-        for (let x = 0; x < numbers.length; x++) {
-            if (numin[x].value == numbers[i]) {
-                win.push (numin[x].value)
-            }
         
+        if (numbers.includes( parseInt(numin[i].value))) {
+
+            win.push(parseInt(numin[i].value))
+            
         }
+        
     }
 
     if (win.length > 0) {
