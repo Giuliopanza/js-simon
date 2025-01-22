@@ -6,7 +6,8 @@ const numin = document.getElementsByClassName("form-control")
 
 function numrandom(min, max) {
 
-    Math.floor(Math.random() * max) + min ;
+    let random = Math.floor(Math.random() * max) + min ;
+    return random
     
 }
 
@@ -20,11 +21,13 @@ for (let i = 0; numbers.length < 5; i++) {
         
     }
 
+
+
 }
 
 for (let i = 0; i < numbers.length; i++) {
     
-    numeri.innerHTML += `<li>${ numbers (i)}<li>`
+    numeri.innerHTML += `<li>${numbers [i]}<li>`
     
 }
 
